@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            height: 526px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+            background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%)
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-grow: 2;
+            text-align: center;
+        }
+
+        .circle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 50%;
+            width: 280px;
+            height: 280px;
+            border: 1px dashed white;
+        }
+
+        .footer {
+            flex-grow: 1;
+            padding-left: 16px;
+            color: #E2DAEE;
+        }
+
+        .day_of_week {
+            line-height: 0.6;
+        }
+
+        .month_day {
+            font-size: 1.5rem;
+        }
+
+        .temp {
+            font-size: 2rem;
+            color: #E2DAEE;
+        }
+
+        .time {
+            font-size: 0.8rem;
+        }
+
+        .temp_text {
+            line-height: 0.6;
+            font-size: 1.4rem;
+            color: #E2DAEE;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="main">
+            <div class="row">
+                <div class="circle">
+                    <div class="temp">+28℃</div>
+                    <div class="temp_text">Rain</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="day_of_week">Friday</div>
+            <div class="month_day">August, 12</div>
+            <div class="time">4:00 p.m.</div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>
