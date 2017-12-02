@@ -48,7 +48,7 @@
             border-radius: 50%;
             width: 280px;
             height: 280px;
-            border: 1px dashed white;
+            /*border: 1px dashed white;*/
         }
 
         .footer {
@@ -79,6 +79,16 @@
             font-size: 1.4rem;
             color: #E2DAEE;
         }
+
+        #rain {
+            margin-left: 20px;
+            position: absolute;
+            transform: scale(0.025);
+        }
+
+        .c {
+            position: absolute;
+        }
     </style>
 </head>
 <body>
@@ -86,6 +96,17 @@
     <div class="card">
         <div class="main">
             <div class="row">
+                <svg class="c" height="100%">
+                    <defs>
+                        <linearGradient id="linear" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="40%" stop-color="white" />
+                            <stop offset="55%" stop-color="gray" />
+                            <stop offset="70%" stop-color="transparent" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="150" cy="140" r="135" stroke="url(#linear)" stroke-dasharray="5, 5" stroke-width="0.5"
+                            fill="transparent" />
+                </svg>
                 <div class="circle">
                     <div class="temp">+28℃</div>
                     <div class="temp_text">Rain</div>
