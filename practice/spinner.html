@@ -14,10 +14,11 @@
 			left: 50px;
 			width: 100px;
 			height: 100px;
-			border: 3px solid limegreen;
+			border: 8px solid limegreen;
 			border-radius: 15px;
 			animation-name: spin;
 			animation-duration: 1s;
+			animation-direction: alternate-reverse;
 			animation-iteration-count: infinite;
 		}
 		#spinner2 {
@@ -27,12 +28,13 @@
 			left: 50px;
 			width: 100px;
 			height: 100px;
-			border: 3px solid royalblue;
+			border: 8px solid royalblue;
 			border-radius: 15px;
 			animation-name: spin;
 			animation-duration: 1s;
+			animation-direction: alternate-reverse;
 			animation-iteration-count: infinite;
-			animation-delay: 0.05s;
+			animation-delay: 0.333s;
 		}
 		#spinner3 {
 			display: inline-block;
@@ -41,20 +43,20 @@
 			left: 50px;
 			width: 100px;
 			height: 100px;
-			border: 3px solid #F26C1A;
+			border: 8px solid #F26C1A;
 			border-radius: 15px;
 			animation-name: spin;
 			animation-duration: 1s;
+			animation-direction: alternate-reverse;
 			animation-iteration-count: infinite;
-			animation-delay: 0.1s;
+			animation-delay: 0.666s;
 		}
 
 		@keyframes spin {
 			from {
-
 			}
 			to {
-				transform: rotate(360deg);
+				transform: rotate3d(1, 1, 1, 360deg)
 			}
 		}
 	</style>
