@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Drawing</title>
+	<style>
+		#myCanvas {
+			border: 1px dashed gray;
+		}
+	</style>
+</head>
+<body>
+<canvas id="myCanvas" width="500px" height="500px"></canvas>
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function drawRect(x, y, width, height, color) {
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, width, height);
+    }
+
+    function drawLine(from, to) {
+        ctx.beginPath();
+        ctx.moveTo(from[0], from[1]);
+        ctx.lineTo(to[0], to[1]);
+        ctx.stroke();
+    }
+
+    function drawCircle(x, y, r) {
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+
+    drawRect(10, 10, 40, 80, 'tomato');
+    drawLine([100, 100], [350, 150]);
+    drawCircle(300, 300, 50);
+</script>
+</body>
+</html>

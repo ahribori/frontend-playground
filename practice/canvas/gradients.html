@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Drawing</title>
+	<style>
+		#myCanvas {
+			border: 1px dashed gray;
+		}
+	</style>
+</head>
+<body>
+<canvas id="myCanvas" width="500px" height="500px"></canvas>
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function drawRect(x, y, width, height, color) {
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, width, height);
+    }
+
+    const linearGradient = ctx.createLinearGradient(400, 400, 200, 500); // x, y, x1, y1
+    linearGradient.addColorStop(0, 'orange');
+    linearGradient.addColorStop(1, 'pink');
+
+    const radialGradient = ctx.createRadialGradient(320, 320, 150, 100, 60, 350);
+    radialGradient.addColorStop(0, "red");
+    radialGradient.addColorStop(1, "blue");
+
+    drawRect(10, 10, 200, 200, linearGradient);
+    drawRect(320, 320, 100, 100, radialGradient);
+</script>
+</body>
+</html>
