@@ -6,17 +6,17 @@
 
 ## 1. Layout
 
-* [Holy Grail Layout](./layout/flexbox-holy-grail-layout.html)
-* [Sticky Nav bar with Shadow](./layout/sticky-nav-with-shadow.html)
+* [Holy Grail Layout](https://ahribori.github.io/frontend-playground/layout/flexbox-holy-grail-layout.html)
+* [Sticky Nav bar with Shadow](https://ahribori.github.io/frontend-playground/layout/sticky-nav-with-shadow.html)
 
 ## 2. Spinner
-* [Tripple Sqare Spinner](./spinner/tripple-sqare-spinner.html)
-* [3D Cube Spinner](./spinner/3d-cube-spinner.html)
+* [Tripple Sqare Spinner](https://ahribori.github.io/frontend-playground/spinner/tripple-sqare-spinner.html)
+* [3D Cube Spinner](https://ahribori.github.io/frontend-playground/spinner/3d-cube-spinner.html)
 
 ## 3. Widget
-* [Mobile Weather Widget](./widget/weater_app.html)
+* [Mobile Weather Widget](https://ahribori.github.io/frontend-playground/widget/weather_app.html)
 
 ## 4. Practice
-* [ [Canvas Practice] - Drawing](./practice/canvas/drawing.html)
-* [ [Canvas Practice] - Gradients](./practice/canvas/gradients.html)
-* [ [Canvas Practice] - Screen Fitted Canvas](./practice/canvas/screen-fitted-canvas.html)
+* [ [Canvas Practice] - Drawing](https://ahribori.github.io/frontend-playground/practice/canvas/drawing.html)
+* [ [Canvas Practice] - Gradients](https://ahribori.github.io/frontend-playground/practice/canvas/gradients.html)
+* [ [Canvas Practice] - Screen Fitted Canvas](https://ahribori.github.io/frontend-playground/practice/canvas/screen-fitted-canvas.html)
