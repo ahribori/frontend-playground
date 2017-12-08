@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mega Menu</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mega * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mega a {
+            display: inline-block;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .mega {
+            display: flex;
+            justify-content: center;
+        }
+
+        .mega-lg-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: #0f0071;
+        }
+
+        .mega-lg-item {
+            display: inline;
+            line-height: 3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            flex-basis: 150px;
+            color: white;
+        }
+
+        .mega-lg-item:hover {
+            background-color: #1a00c8;
+        }
+
+        .mega-lg-item a {
+            color: inherit;
+        }
+
+        .mega-md-container {
+            display: none;
+            visibility: hidden;
+            position: absolute;
+            justify-content: center;
+            margin: 0;
+            width: 100%;
+            left: 0;
+            background-color: #d8d8d8;
+        }
+
+        .mega-md-item {
+            display: inline;
+            flex-basis: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: black;
+            background-color: transparent;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .mega-md-item:hover {
+            background-color: #efefef;
+        }
+
+        .mega-sm-container {
+
+        }
+
+        .mega-sm-item {
+            list-style-type: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: black;
+            background-color: transparent;
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+
+        .mega-sm-item:hover {
+            background-color: #ffffff;
+        }
+
+        .mega-show {
+            display: flex;
+            visibility: visible;
+            animation: smoothVisible 1s;
+        }
+    </style>
+</head>
+<body>
+<!-- 
+emmet:
+ul.mega-lg-container>.mega-lg-item*3>a{대메뉴$}+ul.mega-md-container>.mega-md-item*5>a{중메뉴$}+ul.mega-sm-container>.mega-sm-item*5>a{소메뉴$}
+ -->
+<div class="mega">
+    <ul class="mega-lg-container">
+        <li class="mega-lg-item"><a href="">대메뉴1</a>
+            <ul class="mega-md-container">
+                <li class="mega-md-item"><a href="">중메뉴1</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴2</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴3</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴4</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴5</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="mega-lg-item"><a href="">대메뉴2</a>
+            <ul class="mega-md-container">
+                <li class="mega-md-item"><a href="">중메뉴1</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴2</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴3</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴4</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴5</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="mega-lg-item"><a href="">대메뉴3</a>
+            <ul class="mega-md-container">
+                <li class="mega-md-item"><a href="">중메뉴1</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴2</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴3</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴4</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+                <li class="mega-md-item"><a href="">중메뉴5</a>
+                    <ul class="mega-sm-container">
+                        <li class="mega-sm-item"><a href="">소메뉴1</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴2</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴3</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴4</a></li>
+                        <li class="mega-sm-item"><a href="">소메뉴5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    const menus = document.querySelectorAll('.mega-lg-item');
+    for (var i = 0; i < menus.length; i += 1) {
+        const menu = menus[i];
+        menu.onmouseover = function showMegaMenu() {
+            const children = this.querySelector('.mega-md-container');
+            children.className += ' mega-show';
+        };
+
+        menu.onmouseout = function hideMegaMenu() {
+            const children = this.querySelector('.mega-md-container');
+            children.className = children.className.replace(' mega-show', '');
+        };
+    }
+</script>
+</body>
+</html>
