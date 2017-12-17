@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<h1>아무데나 클릭해 보세요</h1>
+
+<script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<script>
+    document.addEventListener('click', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        new mojs.Burst({
+            left: 0,
+            top: 0,
+            x,
+            y,
+        }).play();
+    });
+</script>
+</body>
+</html>
