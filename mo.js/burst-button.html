@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        button {
+            background-color: deeppink;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item">
+        <button id="clickme">Click Me!!</button>
+    </div>
+</div>
+<script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-player/latest/mojs-player.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-curve-editor/latest/mojs-curve-editor.min.js"></script>
+<script>
+    const mojs = window.mojs;
+    const Editor = window.MojsCurveEditor;
+    const Player = window.MojsPlayer;
+
+    const burst1 = new mojs.Burst({
+        parent: document.querySelector('.item'),
+        count: 30,
+        scale: 1,
+        radius: { 50: 70 },
+        children: {
+            fill: { 'white': 'red' },
+            duration: 300
+        }
+    });
+
+    const burst2 = new mojs.Burst({
+        parent: document.querySelector('.item'),
+        count: 20,
+        scale: 1,
+        radius: { 70: 120 },
+        timeline: { delay: 200 },
+        children: {
+            shape: 'line',
+            radius: 10,
+            radiusY: 0,
+            scale: 2,
+            strokeDasharray: '100%',
+            strokeDashoffset: { '-100%': '100%' },
+            stroke: 'orange',
+            duration: 200
+        }
+    });
+
+    const burst3 = new mojs.Burst({
+        parent: document.querySelector('.item'),
+        count: 14,
+        scale: 1,
+        angle: { 240: 360 },
+        radius: { 60: 100 },
+        timeline: { delay: 200 },
+        children: {
+            shape: 'line',
+            radius: 7,
+            radiusY: 0,
+            scale: { 1: 2 },
+            strokeDasharray: '100%',
+            strokeDashoffset: { '-100%': '100%' },
+            stroke: 'red',
+            duration: 300
+        }
+    });
+
+    const btn = document.querySelector('#clickme');
+    btn.onclick = () => {
+        burst1.replay();
+        burst2.replay();
+        burst3.replay();
+    }
+
+</script>
+</body>
+</html>
