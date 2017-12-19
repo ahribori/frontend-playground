@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: #FFF5E4;
+        }
+
+        .el {
+            position: absolute;
+            left: 20%;
+            top: 50%;
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+            margin-top: -50px;
+            background-color: #572853;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="el" id="js-el"></div>
+
+<script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-player/latest/mojs-player.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-curve-editor/latest/mojs-curve-editor.min.js"></script>
+<script>
+    const Editor = window.MojsCurveEditor;
+    const Player = window.MojsPlayer;
+
+    const yCurve = new Editor({ name: 'yOffset' });
+    const scaleCurve = new Editor({ name: 'scale' });
+    const angleCurve = new Editor({ name: 'angle' });
+
+    const getScaleYEasing = mojs.easing.path('M0, 0 C0, 0 28.714285714285715, -5.248486282060085e-15 43, 0 C42.99999999999999, -60.57142857142856 56.71479009101498, -61.02281336210939 57, 0 C71.28520990898507, -0.12004378074776914 100, 0 100, 0');
+
+    const square1 = new mojs.Html({
+        el: '#js-el',
+        y: {
+            [-300]: -300,
+            curve: 'M0, 0 C0, 0 17.829824310015535, 1.012840591511686 30, 25 C42.17017568998447, 48.98715940848831 46.8058690744921, 100 46.8058690744921, 100 C46.8058690744921, 100 52.96839729119639, 100 52.96839729119639, 100 C52.96839729119639, 100 57.61856484793163, 17.815811159807843 100, 0 '
+        },
+        scaleX: {
+            1: 1,
+            curve: 'M0, 0 C0, 0 28.714285714285715, -5.248486282060085e-15 43, 0 C42.99999999999999, -60.57142857142856 56.71479009101498, -61.02281336210939 57, 0 C71.28520990898507, -0.12004378074776914 100, 0 100, 0 '
+        },
+        scaleY: {
+            1: 1, curve: (k) => {
+                return 1 + (1 - getScaleYEasing(k)) / 1.5;
+            }
+        },
+        angleZ: {
+            90: 90,
+            curve: 'M0, 100 C0, 100 45, 0 45, 0 C45, 0 45, 100 45, 100 C45, 100 60, 100 60, 100 C60, 100 100, 0 100, 0'
+        },
+        duration: 1000,
+    });
+
+    const mojsPlayer = new Player({ add: square1 });
+
+</script>
+</body>
+</html>
