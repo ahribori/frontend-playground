@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 500px;
+		}
+		.progress {
+			position: relative;
+			height: 20px;
+			width: 100px;
+			background-color: transparent;
+		}
+		.percentage {
+			font-size: 0.6rem;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="progress">
+		<div class="percentage">87.78%</div>
+		<div class="mo-progress"></div>
+	</div>
+
+</div>
+<script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-player/latest/mojs-player.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-curve-editor/latest/mojs-curve-editor.min.js"></script>
+<script>
+	const { mojs } = window;
+    const Editor = window.MojsCurveEditor;
+    const Player = window.MojsPlayer;
+
+    const bar = new mojs.Shape({
+		parent: '.mo-progress',
+		shape: 'line',
+        strokeLinecap: 'round',
+		x: 1,
+		y: 8,
+		scaleX: { 0 : 0.8778 },
+		scaleY: 2,
+		stroke: 'deeppink',
+		origin: 0,
+		duration: 1000,
+	}).play();
+</script>
+</body>
+</html>
