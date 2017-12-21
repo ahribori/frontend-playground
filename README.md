@@ -23,6 +23,7 @@
 * [Burst Button](https://ahribori.github.io/frontend-playground/mo.js/burst-button.html)
 * [Progress Bar](https://ahribori.github.io/frontend-playground/mo.js/progress-bar.html)
 * [Bounce](https://ahribori.github.io/frontend-playground/mo.js/bounce.html)
+* [Stagger](https://ahribori.github.io/frontend-playground/mo.js/stagger.html)
 
 
 ## Widget
