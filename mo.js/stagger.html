@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mo.js Playground</title>
+</head>
+<body>
+<script src="//cdn.jsdelivr.net/mojs/latest/mo.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-player/latest/mojs-player.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-curve-editor/latest/mojs-curve-editor.js"></script>
+<script>
+    const mojs = window.mojs;
+    const Editor = window.MojsCurveEditor;
+    const Player = window.MojsPlayer;
+
+    const Shapes = mojs.stagger(mojs.Shape);
+
+    const shape = new Shapes({
+        quantifier: 12,
+        scale: { 0: 'stagger(1, .25)' },
+        x: 'stagger(0, rand(-50, 50))',
+		y: 'stagger(0, rand(-50, 50))',
+        fill: ['deeppink', 'purple', 'cyan', 'yellow', 'white', 'blue', 'yellow', 'green', 'tomato', 'orange', ],
+        opacity: .5,
+        duration: 1000,
+        radius: 20,
+        onShowStart: true,
+    }).play();
+
+</script>
+</body>
+</html>
