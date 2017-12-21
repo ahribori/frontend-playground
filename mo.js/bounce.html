@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-player/latest/mojs-player.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs-curve-editor/latest/mojs-curve-editor.min.js"></script>
+<script>
+    const { mojs } = window;
+    const Editor = window.MojsCurveEditor;
+    const Player = window.MojsPlayer;
+
+    const bounceCurve = new Editor({ name: 'bounce' });
+
+    const shape = new mojs.Shape({
+        shape: 'circle',
+        radius: 10,
+        fill: 'deeppink',
+        left: '20%',
+        x: { 0: 300 },
+        y: {
+            [-500]: 0,
+            curve: 'M0, -85 C0, -85 20, 100 20, 100 C20, 100 27.627966779620373, 39.94632955979353 38.45679012345679, 40 C49.28561346729321, 40.05367044020646 53.45679012345679, 100 53.45679012345679, 100 C53.45679012345679, 100 57.13403880070547, 67.42857142857143 65, 67.42857142857143 C72.86596119929453, 67.42857142857143 75, 100 75, 100 C75, 100 77.07525321413029, 84.99576328580063 82.22222222222221, 85 C87.36919123031414, 85.00423671419935 88.27160493827161, 100 88.27160493827161, 100 C88.27160493827161, 100 100, 100 100, 100 '
+        },
+        duration: 1500,
+    }).play();
+
+    new Player({ add: shape })
+</script>
+</body>
+</html>

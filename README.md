@@ -21,6 +21,8 @@
 * [Document Onclick Burst](https://ahribori.github.io/frontend-playground/mo.js/document-onclick-burst.html)
 * [Mo.js Tools Example](https://ahribori.github.io/frontend-playground/mo.js/tools-example.html)
 * [Burst Button](https://ahribori.github.io/frontend-playground/mo.js/burst-button.html)
+* [Progress Bar](https://ahribori.github.io/frontend-playground/mo.js/progress-bar.html)
+* [Bounce](https://ahribori.github.io/frontend-playground/mo.js/bounce.html)
 
 
 ## Widget
