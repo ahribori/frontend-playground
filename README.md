@@ -25,6 +25,9 @@
 * [Bounce](https://ahribori.github.io/frontend-playground/mo.js/bounce.html)
 * [Stagger](https://ahribori.github.io/frontend-playground/mo.js/stagger.html)
 
+## Svg.js
+
+* [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
 
 ## Widget
 * [Mobile Weather Widget](https://ahribori.github.io/frontend-playground/widget/weather_app.html)

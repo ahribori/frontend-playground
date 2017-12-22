@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Svg.js Line chart</title>
+    <style>
+        #SvgjsSvg1001 {
+            border: 2px dashed grey;
+        }
+    </style>
+</head>
+<body>
+<div id="drawing"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.3/svg.min.js"></script>
+<script>
+    const width = 800;
+    const height = 300;
+    const draw = SVG('drawing').size(width, height)
+
+    const _ = (x, y) => {
+        return [x, height - y];
+    };
+
+    const data = [
+        _(0, 0),
+    ];
+
+    var polyline = draw.polyline(data).fill('none').stroke({ color: 'deeppink', width: 2 });
+
+    const generateRandomNumber = () => {
+        return Math.round(Math.random() * height);
+    };
+
+    let x = 0;
+
+    const interval = setInterval(() => {
+        x += 10;
+        y = generateRandomNumber();
+        data.push(_(x, y));
+        polyline.animate(300).plot(data);
+        if (x >= width) {
+            clearInterval(interval);
+        }
+    }, 500);
+</script>
+</body>
+</html>
