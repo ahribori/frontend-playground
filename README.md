@@ -26,14 +26,13 @@
 * [Stagger](https://ahribori.github.io/frontend-playground/mo.js/stagger.html)
 
 ## Svg.js
-
 * [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
 
 ## Audio
-* [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
+* [Music Equalizer](https://ahribori.github.io/frontend-playground/audio/equalizer.html)
 
 ## Widget
-* [Music Equalizer](https://ahribori.github.io/frontend-playground/audio/equalizer.html)
+* [Mobile Weather Widget](https://ahribori.github.io/frontend-playground/widget/weather_app.html)
 
 ## Practice
 * [ [Canvas Practice] - Drawing](https://ahribori.github.io/frontend-playground/practice/canvas/drawing.html)
