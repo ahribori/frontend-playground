@@ -31,8 +31,8 @@
         }
 
         .bar {
-            flex-basis: 20px;
-            background-color: deeppink;
+            flex-basis: 30px;
+            background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
         }
     </style>
 
@@ -95,7 +95,7 @@
             $bars[13].style.height = ((frequencyData[13] * 100) / 256) + "%";
             $bars[14].style.height = ((frequencyData[14] * 100) / 256) + "%";
             $bars[15].style.height = ((frequencyData[15] * 100) / 256) + "%";
-            console.log(frequencyData)
+            console.log(frequencyData);
             requestAnimationFrame(renderFrame);
         }
 
