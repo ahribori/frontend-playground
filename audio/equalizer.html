@@ -1,0 +1,108 @@
+<!DOCTYPE>
+<html>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+        }
+
+        .equalizer {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            position: relative;
+            height: 500px;
+            width: 1000px;
+            border: 1px dashed gray;
+        }
+
+        .bar {
+            flex-basis: 20px;
+            background-color: deeppink;
+        }
+    </style>
+
+</head>
+<body>
+<audio id="audio" src="./music.mp3"></audio>
+
+<div class="container">
+    <div id="equalizer" class="equalizer">
+        <div id="bar1" class="bar"></div>
+        <div id="bar2" class="bar"></div>
+        <div id="bar3" class="bar"></div>
+        <div id="bar4" class="bar"></div>
+        <div id="bar5" class="bar"></div>
+        <div id="bar6" class="bar"></div>
+        <div id="bar7" class="bar"></div>
+        <div id="bar8" class="bar"></div>
+        <div id="bar9" class="bar"></div>
+        <div id="bar10" class="bar"></div>
+        <div id="bar11" class="bar"></div>
+        <div id="bar12" class="bar"></div>
+        <div id="bar13" class="bar"></div>
+        <div id="bar14" class="bar"></div>
+        <div id="bar15" class="bar"></div>
+        <div id="bar16" class="bar"></div>
+    </div>
+</div>
+<script>
+    const $bars = document.querySelectorAll('.bar');
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        renderMotion();
+    });
+
+    function renderMotion() {
+        var audioCtx = new AudioContext();
+        var analyser = audioCtx.createAnalyser();
+        source = audioCtx.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+        analyser.fftSize = 2048;
+
+        var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+        function renderFrame() {
+            analyser.getByteFrequencyData(frequencyData);
+            $bars[0].style.height = ((frequencyData[0] * 100) / 256) + "%";
+            $bars[1].style.height = ((frequencyData[1] * 100) / 256) + "%";
+            $bars[2].style.height = ((frequencyData[2] * 100) / 256) + "%";
+            $bars[3].style.height = ((frequencyData[3] * 100) / 256) + "%";
+            $bars[4].style.height = ((frequencyData[4] * 100) / 256) + "%";
+            $bars[5].style.height = ((frequencyData[5] * 100) / 256) + "%";
+            $bars[6].style.height = ((frequencyData[6] * 100) / 256) + "%";
+            $bars[7].style.height = ((frequencyData[7] * 100) / 256) + "%";
+            $bars[8].style.height = ((frequencyData[8] * 100) / 256) + "%";
+            $bars[9].style.height = ((frequencyData[9] * 100) / 256) + "%";
+            $bars[10].style.height = ((frequencyData[10] * 100) / 256) + "%";
+            $bars[11].style.height = ((frequencyData[11] * 100) / 256) + "%";
+            $bars[12].style.height = ((frequencyData[12] * 100) / 256) + "%";
+            $bars[13].style.height = ((frequencyData[13] * 100) / 256) + "%";
+            $bars[14].style.height = ((frequencyData[14] * 100) / 256) + "%";
+            $bars[15].style.height = ((frequencyData[15] * 100) / 256) + "%";
+            console.log(frequencyData)
+            requestAnimationFrame(renderFrame);
+        }
+
+        audio.pause();
+        audio.play();
+        renderFrame();
+    }
+</script>
+</body>
+</html>

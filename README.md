@@ -29,8 +29,11 @@
 
 * [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
 
+## Audio
+* [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
+
 ## Widget
-* [Mobile Weather Widget](https://ahribori.github.io/frontend-playground/widget/weather_app.html)
+* [Music Equalizer](https://ahribori.github.io/frontend-playground/audio/equalizer.html)
 
 ## Practice
 * [ [Canvas Practice] - Drawing](https://ahribori.github.io/frontend-playground/practice/canvas/drawing.html)
