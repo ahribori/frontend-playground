@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+	<style>
+		* {
+			font-family: 'Noto Sans KR', Helvetica, Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.container {
+			display: flex;
+			height: 100vh;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.btn {
+			border-radius: 50%;
+			font-size: 1.2rem;
+			letter-spacing: 0.2rem;
+			width: 150px;
+			height: 80px;
+			outline: none;
+			border: 3px solid deepskyblue;
+			color: deepskyblue;
+			background-color: transparent;
+			cursor: pointer;
+		}
+
+		.btn:before {
+			content: "OPEN";
+		}
+		.btn:after {
+			transition: all 0.2s;
+			content: "+";
+			display: inline-block;
+		}
+
+		.btn:hover {
+			color: deeppink;
+			border-color: deeppink;
+		}
+
+		.btn:hover:before {
+			animation: pulse ease-in-out 0.2s;
+			content: "CLOSE";
+		}
+		.btn:hover:after {
+			transform: rotate(215deg);
+		}
+		@keyframes pulse {
+			0% {
+				font-size: 1.2rem;
+			}
+			35% {
+				font-size: 1rem;
+			}
+			100% {
+				font-size: 1.3rem;
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<button class="btn"></button>
+	<p>인터랙티브 버튼 연습...OPEN/CLOSE 라서 뭔가 이상하지만 일단 hover 이벤트로 대충대충...</p>
+</div>
+<script>
+
+</script>
+</body>
+</html>
