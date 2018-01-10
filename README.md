@@ -16,6 +16,7 @@
 ## Spinner
 * [Tripple Sqare Spinner](https://ahribori.github.io/frontend-playground/spinner/tripple-sqare-spinner.html)
 * [3D Cube Spinner](https://ahribori.github.io/frontend-playground/spinner/3d-cube-spinner.html)
+* [Fullscreen Loader](https://ahribori.github.io/frontend-playground/spinner/fullscreen-loader.html)
 
 ## Interactive UI
 * [Interactive Button](https://ahribori.github.io/frontend-playground/interactive-ui/interactive-button.html)
