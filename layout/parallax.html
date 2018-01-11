@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Parallax</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			height: 2400px;
+			background-size: auto;
+			background-image: url('./images/parallax/bloque3.jpg');
+		}
+
+		.container div {
+			position: absolute;
+			width: 100%;
+			height: 2400px;
+			background-repeat: no-repeat;
+		}
+
+		.title {
+			left: 200px;
+			top: 500px;
+			position: fixed;
+			color: white;
+			text-shadow: 0 0 0.25em white;
+			font-size: 3rem;
+		}
+
+		.m {
+			left: 200px;
+			top: 570px;
+			position: fixed;
+			color: white;
+			text-shadow: 0 0 0.25em white;
+			font-size: 2rem;
+		}
+
+		.bg1 {
+			background-image: url('./images/parallax/capa1a.png');
+		}
+
+		.bg2 {
+			/* shark */
+			background-image: url('./images/parallax/capa3a.png');
+		}
+
+		.bg3 {
+			/* fish */
+			background-image: url('./images/parallax/capa3b.png');
+		}
+
+		.bg4 {
+			/* fish */
+			background-image: url('./images/parallax/capa3c.png');
+		}
+		.bg5 {
+			/* fish */
+			background-image: url('./images/parallax/capa3d.png');
+		}
+
+	</style>
+</head>
+<body>
+<div class="container" data-speed="-70">
+	<h1 class="title">패럴렉스 연습</h1>
+	<h1 class="m">수심: 0m</h1>
+	<div class="bg1" data-x="50" data-y="500" data-speed="0"></div>
+	<div class="bg2" data-x="100" data-y="1000" data-speed="-40"></div>
+	<div class="bg3" data-x="600" data-y="600" data-speed="-60"></div>
+	<div class="bg4" data-x="600" data-y="600" data-speed="-65"></div>
+	<div class="bg5" data-x="600" data-y="600"  data-speed="-70"></div>
+</div>
+<script>
+
+	const m = document.querySelector('.m');
+    const parallax = (target, xOffset, yOffset) => {
+        const x = xOffset || 0;
+        const y = yOffset || 0;
+        const speed = target.getAttribute('data-speed') || 10;
+        const yPos = y - (window.scrollY * (speed / 100));
+        const coords = `${x}px ${yPos}px`;
+        target.style.backgroundPosition = coords;
+        m.innerHTML = `수심 : ${Math.round(yPos / 10)}m`;
+    };
+
+	const elements = document.querySelectorAll('[data-speed]');
+    const scroll = (e) => {
+		for (let i = 0, count = elements.length; i < count; i ++) {
+		    const xOffset = elements[i].getAttribute('data-x');
+		    const yOffset = elements[i].getAttribute('data-y');
+		    parallax(elements[i], xOffset, yOffset);
+		}
+    };
+
+    const updateInterval = 1;
+    let waiting = false;
+    document.addEventListener("scroll", function (e) {
+        if (!waiting) {
+            waiting = true;
+            scroll(e);
+            setTimeout(() => {
+                waiting = false;
+            }, updateInterval);
+        }
+    });
+
+    scroll();
+</script>
+</body>
+</html>

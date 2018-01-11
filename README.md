@@ -8,6 +8,7 @@
 
 * [Holy Grail Layout](https://ahribori.github.io/frontend-playground/layout/flexbox-holy-grail-layout.html)
 * [Sticky Nav bar with Shadow](https://ahribori.github.io/frontend-playground/layout/sticky-nav-with-shadow.html)
+* [Parallax Example](https://ahribori.github.io/frontend-playground/layout/parallax.html)
 
 ## Menu
 
