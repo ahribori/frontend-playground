@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #test {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 100%;
+
+        }
+    </style>
+</head>
+<body>
+<div id="test"></div>
+<script>
+    const $test = document.querySelector('#test');
+    let counter = 0;
+    let req;
+    const translate = (timestamp, af) => {
+        $test.style.transform = `translate3d(${counter++}px,0,0)`;
+        //        $test.style.transform = `translateX(${counter++}px)`;
+        req = window.requestAnimationFrame(translate);
+        if (timestamp > 3000) {
+            window.cancelAnimationFrame(req);
+        }
+        console.log(timestamp);
+    };
+    window.requestAnimationFrame(translate);
+
+
+</script>
+</body>
+</html>
