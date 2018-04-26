@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.container {
+			box-sizing: border-box;
+			height: 3000px;
+			padding-top: 500px;
+		}
+
+		section {
+			height: 1000px;
+		}
+
+		#tit {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<section class="section1">
+		<h1 id="tit">ScrollMagic + Mo.js Examples</h1>
+	</section>
+	<section class="section2">
+	</section>
+	<section class="section3">
+		<div class="burst"></div>
+	</section>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<script>
+    const tit = new mojs.Html({
+        el: '#tit',
+        scale: { 0.5: 1.2 },
+        y: { 0: 200 },
+        opacity: { 0: 1 },
+    });
+
+    const shape1 = new mojs.Shape({
+        shape: 'polygon',  // shape "circle" is default
+        radius: 25,        // shape radius
+        fill: { 'white': 'beige' },   // same as 'transparent'
+        top: { 750: 850 },
+        x: { 300: 30 },
+        opacity: { 0: 1 },
+        stroke: '#F64040', // or 'cyan'
+        strokeWidth: 5,         // width of the stroke
+        isShowStart: true,      // show before any animation starts
+        duration: 3000,
+    });
+
+    const shape2 = new mojs.Shape({
+        shape: 'polygon',  // shape "circle" is default
+        points: { 10: 3 },
+        radius: 25,        // shape radius
+        fill: { 'white': 'powderblue' },   // same as 'transparent'
+        top: { 1550: 1750 },
+        x: { [-300]: -30 },
+        stroke: '#F64040', // or 'cyan'
+        easing: 'sin.out',
+        opacity: { 0: 1 },
+        strokeWidth: 5,         // width of the stroke
+        isShowStart: true,      // show before any animation starts
+        duration: 3000,
+    });
+
+    const burst1 = new mojs.Burst({
+        radius: { 100: 175 },
+        count: 20,
+        duration: 2000,
+        y: { 2000: 2500 },
+        onComplete() {
+            console.log('completed');
+        },
+        children: {
+            shape: ['circle', 'polygon'],
+            fill: ['#333', 'magenta', 'purple'],
+            scale: 1.2,
+            angle: { 0: 180 },
+            degreeShift: 'rand(-360, 360)',
+            delay: 'stagger(0, 25)',
+        }
+    });
+
+    const scrollMagicController = new ScrollMagic.Controller();
+    const scene1 = new ScrollMagic.Scene({
+        triggerElement: '.section1',
+        duration: 500,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('progress', (state) => {
+            console.log('section1', state.progress);
+            tit.setProgress(state.progress);
+            shape1.setProgress(state.progress);
+        });
+
+    const scene2 = new ScrollMagic.Scene({
+        triggerElement: '.section2',
+        duration: 500,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('progress', (state) => {
+            console.log('section2', state.progress);
+            shape2.setProgress(state.progress);
+        });
+
+    const scene3 = new ScrollMagic.Scene({
+        triggerElement: '.section3',
+        duration: 500,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('progress', (state) => {
+            console.log('section3', state.progress);
+            burst1.setProgress(state.progress);
+        });
+
+</script>
+</body>
+</html>

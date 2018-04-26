@@ -30,6 +30,7 @@
 * [Progress Bar](https://ahribori.github.io/frontend-playground/mo.js/progress-bar.html)
 * [Bounce](https://ahribori.github.io/frontend-playground/mo.js/bounce.html)
 * [Stagger](https://ahribori.github.io/frontend-playground/mo.js/stagger.html)
+* [ScrollMagic+Mojs](https://ahribori.github.io/frontend-playground/mo.js/scrollmagic-mojs.html)
 
 ## Svg.js
 * [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
