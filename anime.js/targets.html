@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Anime.js targets practice</title>
+	<style>
+		.square {
+			width: 30px;
+			height: 30px;
+			background-color: #FF1461;
+		}
+
+		section	{
+			padding-left: 40px;
+		}
+
+		.circle {
+			width: 30px;
+			height: 30px;
+			border-radius: 2em;
+			background-color: darkviolet;
+		}
+
+		.triangle {
+			pointer-events: none;
+			position: relative;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 14px 24px 14px;
+			border-color: transparent transparent currentColor transparent;
+
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>targets</h1>
+	<section>
+		<h3>css selector</h3>
+		<div class="square" id="css-selector"></div>
+		<h3>dom node</h3>
+		<div class="square" id="dom-node"></div>
+		<h3>node list</h3>
+		<div class="square node-list" id="node-list-1"></div>
+		<div class="circle node-list" id="node-list-2"></div>
+		<div class="triangle node-list" id="node-list-3"></div>
+		<h3>javascript object</h3>
+		<div id="javascript-object">
+			<pre></pre>
+		</div>
+	</section>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+<script>
+	// css selector
+	anime({
+		targets: '#css-selector',
+		translateX: 300,
+	});
+
+	// dom node
+	anime({
+		targets: document.querySelector('#dom-node'),
+		translateX: 300,
+	});
+
+	// node list
+	anime({
+		targets: document.querySelectorAll('.node-list'),
+		translateX: 300,
+	});
+
+	// javascript object
+	const obj = { count: 0 };
+	anime({
+		targets: obj,
+		count: '100',
+		round: 1,
+		easing: 'linear',
+		update: (u) => {
+		    document.querySelector('#javascript-object pre').innerHTML = JSON.stringify(obj);
+		}
+	})
+
+</script>
+</body>
+</html>

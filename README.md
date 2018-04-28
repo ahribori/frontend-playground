@@ -31,7 +31,10 @@
 * [Bounce](https://ahribori.github.io/frontend-playground/mo.js/bounce.html)
 * [Stagger](https://ahribori.github.io/frontend-playground/mo.js/stagger.html)
 * [ScrollMagic+Mojs](https://ahribori.github.io/frontend-playground/mo.js/scrollmagic-mojs.html)
-* [ScrollMagic+Animejs](https://ahribori.github.io/frontend-playground/mo.js/scrollmagic-animejs.html)
+
+# Anime.js
+* [ScrollMagic+Animejs](https://ahribori.github.io/frontend-playground/anime.js/scrollmagic-animejs.html)
+* [Anime.js-targets](https://ahribori.github.io/frontend-playground/anime.js/targets.html)
 
 ## Svg.js
 * [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
