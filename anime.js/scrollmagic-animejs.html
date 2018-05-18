@@ -1,88 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-	<style>
-		.container {
-			box-sizing: border-box;
-			padding-top: 500px;
-		}
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .container {
+      box-sizing: border-box;
+      padding-top: 500px;
+    }
 
-		section {
-			height: 1000px;
-		}
+    section {
+      height: 1000px;
+    }
 
-		.square {
-			width: 30px;
-			height: 30px;
-			background-color: #2cb5e8;
-		}
+    .square {
+      width: 30px;
+      height: 30px;
+      background-color: #2cb5e8;
+    }
 
-		.circle {
-			width: 30px;
-			height: 30px;
-			border-radius: 2em;
-			background-color: darkviolet;
-		}
+    .circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 2em;
+      background-color: darkviolet;
+    }
 
-		.triangle {
-			pointer-events: none;
-			position: relative;
-			width: 0;
-			height: 0;
-			border-style: solid;
-			border-width: 0 14px 24px 14px;
-			border-color: transparent transparent currentColor transparent;
+    .triangle {
+      pointer-events: none;
+      position: relative;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 14px 24px 14px;
+      border-color: transparent transparent currentColor transparent;
+    }
 
-		}
-	</style>
+    .section2 {
+      display: flex;
+      justify-content: center;
+    }
+
+    .big-square {
+      width: 500px;
+      height: 500px;
+      background-image: url("https://i.imgur.com/7zoHFZj.png");
+      background-size: cover;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
-	<section class="section1">
-		<div class="square"></div>
-		<div class="circle"></div>
-		<div class="triangle"></div>
-	</section>
+  <section class="section1">
+    <div class="square"></div>
+    <div class="circle"></div>
+    <div class="triangle"></div>
+  </section>
+  <section class="section2">
+    <div class="big-square"></div>
+  </section>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
 <script>
 
-    var basicTimeline = anime.timeline({
-        autoplay: false,
-    });
+  const basicTimeline = anime.timeline({
+    autoplay: false,
+  });
 
-    basicTimeline
-        .add({
-            targets: '.square',
-            translateX: [200, 500],
-            easing: 'easeOutExpo',
-        })
-        .add({
-            targets: '.circle',
-            translateX: [200, 500],
-            easing: 'easeOutExpo'
-        })
-        .add({
-            targets: '.triangle',
-            translateX: [200, 500],
-            easing: 'easeOutExpo'
-        });
+  basicTimeline
+      .add({
+        targets: '.square',
+        translateX: [200, 500],
+        easing: 'easeOutExpo',
+      })
+      .add({
+        targets: '.circle',
+        translateX: [200, 500],
+        easing: 'easeOutExpo'
+      })
+      .add({
+        targets: '.triangle',
+        translateX: [200, 500],
+        easing: 'easeOutExpo'
+      });
 
+  const effect1 = anime({
+    targets: '.big-square',
+    opacity: [0, 1],
+    scale: [0, 1],
+    translateX: [0, '15px'],
+    duration: 500,
+    elasticity: 300,
+    autoplay: false,
+  });
 
-    const scrollMagicController = new ScrollMagic.Controller();
-    const scene1 = new ScrollMagic.Scene({
-        triggerElement: '.section1',
-        duration: 200,
-    }).addIndicators()
-        .addTo(scrollMagicController)
-        .on('progress', (state) => {
-            console.log('section1', state.progress);
-            basicTimeline.seek(basicTimeline.duration * state.progress)
-        });
+  const scrollMagicController = new ScrollMagic.Controller();
+  const scene1 = new ScrollMagic.Scene({
+    triggerElement: '.section1',
+    duration: 200,
+  }).addIndicators()
+      .addTo(scrollMagicController)
+      .on('progress', (state) => {
+        console.log('section1', state.progress);
+        basicTimeline.seek(basicTimeline.duration * state.progress)
+      });
+
+  const scene2 = new ScrollMagic.Scene({
+    triggerElement: '.section2',
+    duration: 500,
+  }).addIndicators()
+      .addTo(scrollMagicController)
+      .on('enter', (state) => {
+        if (state.scrollDirection === 'FORWARD') {
+          console.log('enter ↓');
+          if (effect1.reversed) {
+            effect1.reverse();
+          }
+        }
+        effect1.play();
+      })
+      .on('leave', (state) => {
+        if (state.scrollDirection === 'REVERSE') {
+          console.log('leave ↑');
+          if (!effect1.reversed) {
+            effect1.reverse();
+          }
+        }
+        effect1.play();
+      })
+      .on('progress', (state) => {
+        // effect1.seek(effect1.duration * state.progress);
+      })
 
 </script>
 </body>
