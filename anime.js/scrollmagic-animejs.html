@@ -47,6 +47,10 @@
       background-image: url("https://i.imgur.com/7zoHFZj.png");
       background-size: cover;
     }
+
+    .section3 img {
+      height: 500px;
+    }
   </style>
 </head>
 <body>
@@ -58,6 +62,18 @@
   </section>
   <section class="section2">
     <div class="big-square"></div>
+  </section>
+  <section class="section3">
+    <div class="image-container">
+      <img class="image-item image1" src="https://i.imgur.com/4Kuye6W.jpg">
+      <img class="image-item image2" src="https://i.imgur.com/emBm6jv.jpg">
+      <img class="image-item image3" src="https://i.imgur.com/l49aYS3.jpg">
+    </div>
+    <div class="image-container">
+      <img class="image-item image4" src="https://i.imgur.com/a0bs8oJ.jpg">
+      <img class="image-item image5" src="https://i.imgur.com/bTIbBnY.jpg">
+      <img class="image-item image6" src="https://i.imgur.com/5tj6S7O.jpg">
+    </div>
   </section>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
@@ -89,7 +105,7 @@
   const effect1 = anime({
     targets: '.big-square',
     opacity: [0, 1],
-    scale: [0, 1],
+    scale: [.7, 1],
     translateX: [0, '15px'],
     duration: 500,
     elasticity: 300,
@@ -133,6 +149,49 @@
       .on('progress', (state) => {
         // effect1.seek(effect1.duration * state.progress);
       })
+
+
+  function createScene(target) {
+    const animation = anime({
+      targets: target,
+      opacity: [0, 1],
+      scale: [.7, 1],
+      translateX: [-300, 15],
+      duration: 500,
+      elasticity: 300,
+      autoplay: false,
+    });
+    return new ScrollMagic.Scene({
+      triggerElement: target,
+      duration: 200,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('enter', (state) => {
+          if (state.scrollDirection === 'FORWARD') {
+            console.log('enter ↓');
+            if (animation.reversed) {
+              animation.reverse();
+            }
+          }
+          animation.play();
+        })
+        .on('leave', (state) => {
+          if (state.scrollDirection === 'REVERSE') {
+            console.log('leave ↑');
+            if (!animation.reversed) {
+              animation.reverse();
+            }
+          }
+          animation.play();
+        })
+  }
+
+  const scene_image1 = createScene('.image1');
+  const scene_image2 = createScene('.image2');
+  const scene_image3 = createScene('.image3');
+  const scene_image4 = createScene('.image4');
+  const scene_image5 = createScene('.image5');
+  const scene_image6 = createScene('.image6');
 
 </script>
 </body>
