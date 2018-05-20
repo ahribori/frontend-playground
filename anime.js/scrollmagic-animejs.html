@@ -156,7 +156,11 @@
       targets: target,
       opacity: [0, 1],
       scale: [.7, 1],
-      translateX: [-300, 15],
+      translateX: () => {
+        console.log('x')
+        return [anime.random(-300, 300), 0]
+      },
+      rotate: [-30, 0],
       duration: 500,
       elasticity: 300,
       autoplay: false,
