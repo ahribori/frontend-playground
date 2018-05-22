@@ -7,7 +7,11 @@
     body {
       margin: 0;
     }
+
     canvas {
+      position: fixed;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
     }
@@ -16,27 +20,60 @@
 <body>
 <script src="../assets/js/three.min.js"></script>
 <script>
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-  var renderer = new THREE.WebGLRenderer();
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  document.body.appendChild( renderer.domElement );
+  // 렌더러 정의
+  const renderer = new THREE.WebGLRenderer({antialias: 1, alpha: true,});
+  renderer.setClearColor(0xffffff, 0);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
 
-  var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-  var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-  var cube = new THREE.Mesh( geometry, material );
-  scene.add( cube );
+  // 장면 정의
+  const scene = new THREE.Scene();
 
-  camera.position.z = 5;
+  // 입방체 정의
+  const cubeGeometry = new THREE.CubeGeometry(100, 100, 100); // 형상
+  const cubeMaterial = new THREE.MeshLambertMaterial({color: 0xffee33}); // 재질
+  const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
+
+  scene.add(cube); // 장면에 입방체 추가
+
+  // 카메라 정의
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000);
+  camera.position.z = 400;
+
+  scene.add(camera);
+
+  renderer.render(scene, camera);
+
+  // 스카이박스 정의
+  const skyboxGeometry = new THREE.CubeGeometry(10000, 10000, 10000);
+  const skyboxMaterial = new THREE.MeshBasicMaterial({color: 0x444444, side: THREE.BackSide});
+  const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
+
+  scene.add(skybox);
+
+  // 조명 정의
+  const pointLight = new THREE.PointLight(0xffffff);
+  pointLight.position.set(100, 100, 1500);
+
+  scene.add(pointLight);
+
+
+  // 애니메이션
   function animate() {
-    requestAnimationFrame( animate );
+    requestAnimationFrame(animate);
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
-    renderer.render( scene, camera );
+    renderer.render(scene, camera);
   }
   animate();
+
+  window.addEventListener('resize', (e) => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
 </script>
 </body>
 </html>
