@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout with clip-path</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        section#s1 {
+            background-color: darkblue;
+            height: 600px;
+            clip-path: polygon(0 0,100% 0px,100% calc(100% - 120px),0 100%);
+        }
+
+        section#s2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: deeppink;
+            height: 600px;
+            clip-path: polygon(0 0,100% 120px,100% calc(100% - 120px),0 100%);
+        }
+
+        section#s3 {
+            background-color: darkorange;
+            height: 600px;
+            clip-path: polygon(0 0,100% 120px,100% 100%,0 100%);
+        }
+    </style>
+</head>
+<body>
+<section id="s1">
+</section>
+<section id="s2">
+</section>
+<section id="s3">
+</section>
+</body>
+</html>
