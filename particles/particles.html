@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Particles</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            width: 100%;
+            height: 100%;
+        }
+        #particles-js {
+            height: 100%;
+        }
+    </style>
+    <script type="text/javascript" src="https://vincentgarreau.com/particles.js/assets/_build/js/lib/particles.js"></script>
+
+    <script>
+        particlesJS.load('particles-js', 'default.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+    </script>
+</head>
+<body>
+<div id="particles-js"></div>
+
+</body>
+</html>
