@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mobile scroll parallax</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+        }
+
+        .container {
+            height: 3000px;
+            width: 100%;
+        }
+
+        .other_content {
+            height: 700px;
+        }
+
+        .img {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #img1 {
+            height: 100vh;
+            background: url("../assets/images/11.jpg") no-repeat center;
+            background-size: cover;
+        }
+        #img2 {
+            height: 100vh;
+            background: url("../assets/images/22.jpg") no-repeat center;
+            background-size: cover;
+        }
+        #img3 {
+            height: 100vh;
+            background: url("../assets/images/33.jpg") no-repeat center;
+            background-size: cover;
+        }
+        #img4 {
+            height: 100vh;
+            background: url("../assets/images/44.jpg") no-repeat center;
+            background-size: cover;
+        }
+        #img5 {
+            height: 100vh;
+            background: url("../assets/images/55.jpg") no-repeat center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="img1" class="img">
+    </div>
+    <div id="img2" class="img">
+    </div>
+    <div id="img3" class="img">
+    </div>
+    <div id="img4" class="img">
+    </div>
+    <div id="img5" class="img">
+    </div>
+    <div id="section1" class="other_content"></div>
+    <div id="section2" class="other_content"></div>
+    <div id="section3" class="other_content"></div>
+    <div id="section4" class="other_content"></div>
+    <div id="section5" class="other_content"></div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+<script>
+    const scrollMagicController = new ScrollMagic.Controller();
+
+    const anime2 = anime({
+        targets: '#img2',
+        translateX: [window.innerWidth, 0],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
+    const anime3 = anime({
+        targets: '#img3',
+        translateX: [-window.innerWidth, 0],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
+    const anime4 = anime({
+        targets: '#img4',
+        translateY: [window.innerHeight, 0],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
+    const anime5 = anime({
+        targets: '#img5',
+        translateY: [-window.innerHeight, 0],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
+    const scene2 = new ScrollMagic.Scene({
+        triggerElement: '#section2',
+        duration: 500,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('progress', (state) => {
+            console.log('section2', state.progress);
+            anime2.seek(state.progress * 1000);
+        });
+
+    const scene3 = new ScrollMagic.Scene({
+        triggerElement: '#section3',
+        duration: 500,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('progress', (state) => {
+            console.log('section3', state.progress);
+            anime3.seek(state.progress * 1000);
+        });
+
+    const scene4 = new ScrollMagic.Scene({
+        triggerElement: '#section4',
+        duration: 500,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('progress', (state) => {
+            console.log('section4', state.progress);
+            anime4.seek(state.progress * 1000);
+        });
+
+    const scene5 = new ScrollMagic.Scene({
+        triggerElement: '#section5',
+        duration: 500,
+    }).addIndicators()
+        .addTo(scrollMagicController)
+        .on('progress', (state) => {
+            console.log('section5', state.progress);
+            anime5.seek(state.progress * 1000);
+        });
+</script>
+</body>
+</html>

@@ -35,6 +35,7 @@
 # Anime.js
 * [ScrollMagic+Animejs](https://ahribori.github.io/frontend-playground/anime.js/scrollmagic-animejs.html)
 * [Anime.js-targets](https://ahribori.github.io/frontend-playground/anime.js/targets.html)
+* [Mobile-Parallax-Background](https://ahribori.github.io/frontend-playground/animation-with-scroll/mobile-scroll-parallax.html)
 
 ## Svg.js
 * [Dynamic Line Chart](https://ahribori.github.io/frontend-playground/svg.js/dynamic-line-chart.html)
