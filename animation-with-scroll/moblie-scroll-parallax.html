@@ -81,17 +81,10 @@
 <script>
     const scrollMagicController = new ScrollMagic.Controller();
 
+
     const anime1_1 = anime({
         targets: '#img1',
         translateX: [0, -100],
-        duration: 500,
-        easing: 'easeInQuad',
-        autoplay: false
-    });
-
-    const anime2 = anime({
-        targets: '#img2',
-        translateX: [window.innerWidth, 0],
         duration: 500,
         easing: 'easeInQuad',
         autoplay: false
@@ -105,9 +98,9 @@
         autoplay: false
     });
 
-    const anime3 = anime({
-        targets: '#img3',
-        translateX: [-window.innerWidth, 0],
+    const anime2 = anime({
+        targets: '#img2',
+        translateX: [window.innerWidth, 0],
         duration: 500,
         easing: 'easeInQuad',
         autoplay: false
@@ -121,9 +114,9 @@
         autoplay: false
     });
 
-    const anime4 = anime({
-        targets: '#img4',
-        translateY: [window.innerHeight, 0],
+    const anime3 = anime({
+        targets: '#img3',
+        translateX: [-window.innerWidth, 0],
         duration: 500,
         easing: 'easeInQuad',
         autoplay: false
@@ -132,6 +125,14 @@
     const anime4_1 = anime({
         targets: '#img4',
         translateY: [0, 300],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
+    const anime4 = anime({
+        targets: '#img4',
+        translateY: [window.innerHeight, 0],
         duration: 500,
         easing: 'easeInQuad',
         autoplay: false
@@ -152,8 +153,8 @@
         .addTo(scrollMagicController)
         .on('progress', (state) => {
             console.log('section2', state.progress);
-            anime1_1.seek(state.progress * 1000);
             anime2.seek(state.progress * 1000);
+            anime1_1.seek(state.progress * 1000);
         });
 
     const scene3 = new ScrollMagic.Scene({
@@ -163,8 +164,8 @@
         .addTo(scrollMagicController)
         .on('progress', (state) => {
             console.log('section3', state.progress);
-            anime3.seek(state.progress * 1000);
             anime2_1.seek(state.progress * 1000);
+            anime3.seek(state.progress * 1000);
         });
 
     const scene4 = new ScrollMagic.Scene({
