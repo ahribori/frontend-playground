@@ -15,12 +15,12 @@
         }
 
         .container {
-            height: 3000px;
+            height: 5000px;
             width: 100%;
         }
 
         .other_content {
-            height: 700px;
+            height: 1000px;
         }
 
         .img {
@@ -81,9 +81,25 @@
 <script>
     const scrollMagicController = new ScrollMagic.Controller();
 
+    const anime1_1 = anime({
+        targets: '#img1',
+        translateX: [0, -100],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
     const anime2 = anime({
         targets: '#img2',
         translateX: [window.innerWidth, 0],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
+    const anime2_1 = anime({
+        targets: '#img2',
+        translateX: [0, 200],
         duration: 500,
         easing: 'easeInQuad',
         autoplay: false
@@ -97,9 +113,25 @@
         autoplay: false
     });
 
+    const anime3_1 = anime({
+        targets: '#img3',
+        translateY: [0, -200],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
     const anime4 = anime({
         targets: '#img4',
         translateY: [window.innerHeight, 0],
+        duration: 500,
+        easing: 'easeInQuad',
+        autoplay: false
+    });
+
+    const anime4_1 = anime({
+        targets: '#img4',
+        translateY: [0, 300],
         duration: 500,
         easing: 'easeInQuad',
         autoplay: false
@@ -115,41 +147,45 @@
 
     const scene2 = new ScrollMagic.Scene({
         triggerElement: '#section2',
-        duration: 500,
+        duration: 700,
     }).addIndicators()
         .addTo(scrollMagicController)
         .on('progress', (state) => {
             console.log('section2', state.progress);
+            anime1_1.seek(state.progress * 1000);
             anime2.seek(state.progress * 1000);
         });
 
     const scene3 = new ScrollMagic.Scene({
         triggerElement: '#section3',
-        duration: 500,
+        duration: 700,
     }).addIndicators()
         .addTo(scrollMagicController)
         .on('progress', (state) => {
             console.log('section3', state.progress);
             anime3.seek(state.progress * 1000);
+            anime2_1.seek(state.progress * 1000);
         });
 
     const scene4 = new ScrollMagic.Scene({
         triggerElement: '#section4',
-        duration: 500,
+        duration: 700,
     }).addIndicators()
         .addTo(scrollMagicController)
         .on('progress', (state) => {
             console.log('section4', state.progress);
+            anime3_1.seek(state.progress * 1000);
             anime4.seek(state.progress * 1000);
         });
 
     const scene5 = new ScrollMagic.Scene({
         triggerElement: '#section5',
-        duration: 500,
+        duration: 700,
     }).addIndicators()
         .addTo(scrollMagicController)
         .on('progress', (state) => {
             console.log('section5', state.progress);
+            anime4_1.seek(state.progress * 1000);
             anime5.seek(state.progress * 1000);
         });
 </script>
