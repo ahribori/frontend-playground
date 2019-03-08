@@ -1,0 +1,22 @@
+{
+  "name": "frontend-playground",
+  "version": "1.0.0",
+  "description": ">\r * UI를 프로토타이핑\r * 하나의 주제 -> html 파일 1개로 모두 표현 (html + css + js)",
+  "main": "anime.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahribori/frontend-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahribori/frontend-playground/issues"
+  },
+  "homepage": "https://github.com/ahribori/frontend-playground#readme",
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  }
+}

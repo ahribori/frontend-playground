@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>D3 Startup</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+      window.onload = () => {
+        const body = d3.select('body');
+
+        const svg = body.append('svg');
+        const w = 500;
+        const h = 500;
+        svg.attr('width', w).attr('height', h);
+
+        let dataset = [5, 10, 15, 20, 25];
+        let circle = svg
+          .selectAll('circle')
+          .data(dataset)
+          .enter()
+          .append('circle');
+
+        circle
+          .attr('cx', (d, i) => {
+            return i * 50 + 25;
+          })
+          .attr('cy', h / 2)
+          .attr('r', d => d);
+      };
+    </script>
+  </head>
+  <body></body>
+</html>
