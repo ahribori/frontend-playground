@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parent Frame</title>
+  </head>
+  <body>
+    <!-- child-frame.html을 불러오는 iframe -->
+    <iframe
+      id="iFrame"
+      src="child-frame.html"
+      frameborder="0"
+      onload="iFrameContentsLoaded()"
+    ></iframe>
+
+    <script>
+      function iFrameContentsLoaded() {
+        const iFrame = document.getElementById('iFrame');
+
+        const iFrameDocument =
+          iFrame.contentDocument || iFrame.contentWindow.document;
+
+        const anchor = iFrameDocument.querySelector('a');
+        anchor.style.color = 'red';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Child Frame</title>
+  </head>
+  <body>
+    <!-- a 태그로 iframe 부모창에서 navigate -->
+    <a href="https://naver.com" target="_top">네이버 가기</a>
+
+    <!-- onClick으로 iframe 부모창에서 navigate -->
+    <button onclick="handleClick()">다음 가기</button>
+    <script>
+      function handleClick() {
+        window.open('https://daum.net', '_top');
+      }
+    </script>
+  </body>
+</html>
