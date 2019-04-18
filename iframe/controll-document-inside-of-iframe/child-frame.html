@@ -10,9 +10,28 @@
 
     <!-- onClick으로 iframe 부모창에서 navigate -->
     <button onclick="handleClick()">다음 가기</button>
+
+    <button onclick="action('sayHello', { hello: 'world'})">
+      부모창에 인사하기
+    </button>
+
+    <button onclick="action('openWindow', { url: 'https://naver.com' })">
+      부모창에 팝업창 띄우기
+    </button>
+
+    <button
+      onclick="action('functionCall', { cb: encodeURIComponent((function(msg) { console.log(msg) }).toString()) })"
+    >
+      부모창에 콜백 전달한 후 실행하기
+    </button>
     <script>
       function handleClick() {
         window.open('https://daum.net', '_top');
+      }
+
+      function action(actionType, payload) {
+        const parentWindow = window.top;
+        parentWindow.postMessage({ actionType, ...payload }, '*');
       }
     </script>
   </body>

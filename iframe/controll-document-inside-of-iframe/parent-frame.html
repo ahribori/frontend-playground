@@ -22,6 +22,27 @@
 
         const anchor = iFrameDocument.querySelector('a');
         anchor.style.color = 'red';
+
+        window.addEventListener('message', message => {
+          const { actionType, ...payload } = message.data;
+          switch (actionType) {
+            case 'sayHello': {
+              const { hello } = payload;
+              console.log(hello);
+              break;
+            }
+            case 'openWindow': {
+              const { url } = payload;
+              window.open(url, '_w', 'width=1024,height=768');
+              break;
+            }
+            case 'functionCall': {
+              const { cb } = payload;
+              const msg = '안뇽';
+              eval(`(${decodeURIComponent(cb)})("${msg}")`);
+            }
+          }
+        });
       }
     </script>
   </body>
