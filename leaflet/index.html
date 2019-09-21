@@ -16,6 +16,7 @@
     ></script>
     <style>
       #map {
+        margin: 0 auto;
         width: 800px;
         height: 600px;
       }
@@ -29,7 +30,6 @@
 
       const map = L.map('map', {
         crs: L.CRS.Simple,
-        preferCanvas: true,
         maxZoom: 0,
         minZoom: -2,
         zoom: -1,
@@ -37,7 +37,10 @@
         center: [100, 100],
         animate: false,
 
+        // maxBound의 점성
         maxBoundsViscosity: 0.9,
+        // 우하단 로고 제거
+        attributionControl: false,
       });
 
       map.setMaxBounds(maxBounds);
