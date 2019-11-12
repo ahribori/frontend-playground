@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Drag n Drop practice</title>
+    <style>
+      #div1,
+      #div2 {
+        float: left;
+        width: 500px;
+        height: 300px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+        console.log('allowDrop');
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData('text', ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData('text');
+        console.log(ev.dataTransfer);
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      id="div1"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      style="resize: both"
+    >
+      <img
+        src="../assets/images/11.jpg"
+        draggable="true"
+        ondragstart="drag(event)"
+        id="drag1"
+        style="width: 200px;height:200px;"
+      />
+    </div>
+
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  </body>
+</html>
