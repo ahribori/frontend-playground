@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Table</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <canvas id="myCanvas" width="500px" height="500px"></canvas>
+    <script>
+      const canvas = document.getElementById('myCanvas');
+      const ctx = canvas.getContext('2d');
+
+      function init() {
+        window.addEventListener('resize', resizeCanvas, false);
+        resizeCanvas();
+      }
+
+      function drawLine(from, to) {
+        ctx.beginPath();
+        ctx.moveTo(from[0], from[1]);
+        ctx.lineTo(to[0], to[1]);
+        ctx.fillStyle = '#fefefe';
+        ctx.stroke();
+      }
+
+      function drawTable() {
+        const width = 500;
+        const height = 500;
+        const margin = 10;
+
+        drawLine([margin, margin], [margin, width]);
+        drawLine([margin, margin], [width, margin]);
+        drawLine([margin, margin], [width, margin]);
+      }
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        drawTable();
+      }
+    </script>
+  </body>
+</html>

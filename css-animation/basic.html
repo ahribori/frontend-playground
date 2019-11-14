@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Css animation basic</title>
+    <style>
+      #target1 {
+        position: absolute;
+        top: 50px;
+        height: 30px;
+        width: 30px;
+        background-color: #0fb8ad;
+      }
+
+      #target2 {
+        position: absolute;
+        top: 100px;
+        height: 30px;
+        width: 30px;
+        background-color: #596db8;
+      }
+
+      #target3 {
+        position: absolute;
+        top: 150px;
+        height: 30px;
+        width: 30px;
+        background-color: #b861a8;
+      }
+
+      .ani1 {
+        animation: move 1s 3 linear;
+      }
+
+      .ani2 {
+        animation: move 1s 3 reverse linear;
+      }
+
+      .ani3 {
+        animation: move 1s 3 alternate linear;
+      }
+
+      .ani4 {
+        animation: move 1s 3 alternate-reverse linear;
+      }
+
+      @keyframes move {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(500px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="target1" class="ani1"></div>
+    <div id="target2" class="ani2"></div>
+    <div id="target3" class="ani3"></div>
+  </body>
+</html>
