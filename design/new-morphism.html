@@ -12,15 +12,17 @@
       }
 
       :root {
+        --font-color: #62625b;
         --background-color: #F2F3F8;
         --shadow-color-bright: #ffffff;
-        --shadow-color-dark: #e3e3e3;
+        --shadow-color-dark: #d3d3d3;
       }
 
       html,
       body {
         margin: 0;
         background-color: var(--background-color);
+        color: var(--font-color);
       }
 
       .container {
@@ -33,11 +35,17 @@
         min-width: 100px;
         height: 50px;
         outline: none;
+        font-weight: 300;
+        color: var(--font-color);
         border-radius: 15px;
         background: var(--background-color);
         box-shadow: 10px 10px 15px var(--shadow-color-dark),
           -5px -5px 15px var(--shadow-color-bright);
         transition: box-shadow 0.1s ease-in-out;
+      }
+
+      .round {
+        border-radius: 50%;
       }
 
       button:hover {
@@ -50,13 +58,27 @@
         -3px -3px 10px var(--shadow-color-bright);
       }
 
+      .card {
+        min-height: 200px;
+        margin: 8px;
+        padding: 8px;
+        min-width: 100px;
+        outline: none;
+        border-radius: 5px;
+        background: var(--background-color);
+        box-shadow: 5px 5px 10px var(--shadow-color-dark),
+        -5px -5px 10px var(--shadow-color-bright);
+      }
+
     </style>
   </head>
   <body>
     <div class="container">
       <h1>button</h1>
       <button class="button">Hello!</button>
-      <button class="button">World!</button>
+      <button class="button round">World!</button>
+      <h1>card</h1>
+      <div class="card"></div>
     </div>
   </body>
 </html>
